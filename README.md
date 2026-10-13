@@ -1,3 +1,10 @@
+# Practicas de la asignatura de Aplicaciones Web
+## T.S.U en Desarrollo de Software Multiplataforma
+#### Docente: M.T.I Marco.A Ramirez Hernández
+
+Periodo:Septiembre -Diciembre 2026
+
+---
 
 ### Tabla de practicas de la materia 
 
@@ -7,5 +14,3 @@
 |2.|Mi Primer Pagina web| Codificar la primera pagina web con HTML puro,sin estilos ni funcionalidades| 10 | 🟢 Concluida|
 
 ---
-# Aplicaciones_Web_250943
-codigos

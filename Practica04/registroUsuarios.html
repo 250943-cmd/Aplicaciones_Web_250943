@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MecaGest: Formulario de Registro de Nuevos Usuarios - 250943 </title>
+</head>
+<body>
+    <header>
+        <h1>MecaGest</h1>
+        <h2>Registro de Nuevos Usuarios</h2>
+        <p>Complete los campos para solicitar una cuenta en el sistema.</p>
+    </header>
+
+    <main>
+        <form action ="" method="POST">
+            <fieldset>
+        <legend>Datos Personales</legend>
+           
+            <label for ="nombre">Nombre:</label>
+            <input type=" text" id="nombre" placeholder="Yair "required>
+            <br>
+            <label for ="apPaterno">Apellido Paterno:</label>
+            <input type=" text" id="apPaterno" placeholder=" Sampayo "required>
+            <br>
+            <label for ="apMaterno">Apellido Materno:</label>
+            <input type=" text" id="apMaterno" placeholder=" Viveros"required>
+            <br>
+            <label for="genero">Genero :</label>
+            <select>
+                <option>Femenino</option>
+                <option>Masculino</option>
+                <option>Prefiero no decirlo</option>
+            </select>
+             <br>
+            <label for ="fechaNacimiento">Fecha de Nacimiento :</label>
+            <input type=" date" id="fechaNacimiento">
+            <br>
+            </fieldset>
+            <br>
+            <fieldset>
+        <legend>Datos de Contacto</legend>
+            <label for ="email">Correo electronico:</label>
+            <input type=" email" id="email" placeholder="yairsampayo48gmail.com">
+            <br>
+             <label for ="numTelefono">Numero Telefonico:</label>
+            <input type=" tel" id="numTelefono" placeholder="(+52) 1234-5678">
+            <br>
+             <label for ="horarioContacto">Favor de contactar en el horario :</label>
+            <input type=" time" id="horarioContacto" placeholder="09:00 am">
+            <input type=" time" id="horarioContacto" placeholder="18:00 pm">
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Datos de Acceso</legend>
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" placeholder="yairsampayo" required>
+            <br>
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" placeholder="********" required>
+            <br>
+            <label for="confirmarContrasena">Confirmar Contraseña:</label>
+            <input type="password" id="confirmarContrasena" placeholder="********" required>
+            </fieldset>
+            <br>
+            <fieldset>
+            <legend>Datos de Ubicación</legend>
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" placeholder="Calle, Número, Colonia, Ciudad, Estado, Código Postal">
+            <br>
+
+            <label for="pais">País:</label>
+            <input type="text" id="pais" placeholder="México">
+            <br>
+
+            <lable for="estado">Estado:</lable>
+            <labelpe="text" id="estado" placeholder="Ciudad de México">
+            <br>
+
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" placeholder="Ciudad de México">
+            <br>
+
+            <label for="codigoPostal">Código Postal:</label>
+            <input type="text" id="codigoPostal" placeholder="01234">
+          </fieldset>
+            <input type="submit" value="Enviar Solicitud">
+
+            
+        </form>
+    </main>
+
+</body>
+</html>

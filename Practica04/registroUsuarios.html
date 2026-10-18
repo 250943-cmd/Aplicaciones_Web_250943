@@ -62,33 +62,90 @@
             <label for="confirmarContrasena">Confirmar Contraseña:</label>
             <input type="password" id="confirmarContrasena" placeholder="********" required>
             </fieldset>
-            <br>
-            <fieldset>
-            <legend>Datos de Ubicación</legend>
-            <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion" placeholder="Calle, Número, Colonia, Ciudad, Estado, Código Postal">
-            <br>
-
-            <label for="pais">País:</label>
-            <input type="text" id="pais" placeholder="México">
-            <br>
-
-            <lable for="estado">Estado:</lable>
-            <labelpe="text" id="estado" placeholder="Ciudad de México">
-            <br>
-
-            <label for="ciudad">Ciudad:</label>
-            <input type="text" id="ciudad" placeholder="Ciudad de México">
-            <br>
-
-            <label for="codigoPostal">Código Postal:</label>
-            <input type="text" id="codigoPostal" placeholder="01234">
-          </fieldset>
-            <input type="submit" value="Enviar Solicitud">
-
-            
+           
+ <br>
+       <fieldset>
+       <legend>Datos de Ubicacion</legend>
+       <label for="direccion">Direccion: </label>
+       <input type="text" id="direccion" placeholder="Calle, Número, Colonia, Ciudad, Estado, CP">
+       <label for="pais">País: </label>
+       <input type="text" id="pais" placeholder="México">
+       <label for="estado">Estado: </label>
+       <input type="text" id="estado" placeholder="Ciudad de México">
+       <label for="ciudad">Ciudad: </label>
+       <input type="text" id="ciudad" placeholder="Ciudad de México">
+       <label for="codigoPostal">Código Postal: </label>
+       <input type="text" id="codigoPostal" placeholder="01234">
+       </fieldset>
+    <br>
+    <!--======================================================================-->
+    <!--Se avilitara con JS para agregarle la funcion para peticion a base de datos -->
+    <input type="checkbox" id="validado" required>
+    Acepto los términos y condiciones
+    <br>
+    <input type="submit" value="Enviar" disabled> <!---Limpia los campos del formulario -->
+    <input type="reset" value="Borrar"> <!--Evia una peticion a la base de datos -->
         </form>
-    </main>
+    <br>
+    <!--======================================================================-->
+    <!--Visualizacion de citas-->
+    <form>
+        <legend>Visualizacion de citas</legend>
+        <br>
+    <label for="mesCita">Fecha de la cita:</label>
+    <input type="month" id="mesCita">
+    <button type="verCita">mostrar</button>
+    </form>
+    <br>
+    <h4>las citas se programadas para el mes elegido es :</h4>
+    <br>
+    <table style="border: 1px solid black">
+    <tr>
+        <th style="border: 1px solid black">No.</th>
+        <th style="border: 1px solid black">Nombre</th>
+        <th style="border: 1px solid black">Descripción</th>
+        <th style="border: 1px solid black">Fecha Programada</th>
+        <th style="border: 1px solid black">Estatus Actual</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black">1.</td>
+        <td style="border: 1px solid black">Cita de entrega de unidad reparada con el cliente: Mauricio Mejía, Unidad: Volkswagen, Jetta 2020</td>
+        <td style="border: 1px solid black">Se realizo un cambio de bujías, la unidad esta lista para entrega</td>
+        <td style="border: 1px solid black">10 de Octubre de 2026</td>
+        <td style="border: 1px solid black">Atendida</td>
+    </tr>
 
+    <tr>
+        <td style="border: 1px solid black">2.</td>
+        <td style="border: 1px solid black">Cita de valoración con el cliente: Marco A. Ramírez, Unidad: Renault, Duster 2014</td>
+        <td style="border: 1px solid black">El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+        <td style="border: 1px solid black">16 de Octubre de 2026</td>
+        <td style="border: 1px solid black">Programada</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black">3.</td>
+        <td style="border: 1px solid black">Cita de revisión con el cliente: Mauricio Mejía, Unidad: Volkswagen, Jetta 2020</td>
+        <td style="border: 1px solid black">A la unidad se le hicieron cambio de bujías, pero el cliente reporta un sonido extraño.</td>
+        <td style="border: 1px solid black">17 de Octubre de 2026</td>
+        <td style="border: 1px solid black">Programada</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black">4.</td>
+        <td style="border: 1px solid black">Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
+        <td style="border: 1px solid black">El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+        <td style="border: 1px solid black">16 de Octubre de 2026</td>
+        <td style="border: 1px solid black">Cancelada</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black">5.</td>
+        <td style="border: 1px solid black">Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
+        <td style="border: 1px solid black">El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+        <td style="border: 1px solid black">20 de Octubre de 2026</td>
+        <td style="border: 1px solid black">Reprogramada</td>
+    </tr>
+    </table>
+
+    </main>
+    
 </body>
 </html>

@@ -147,14 +147,23 @@
 
     </main>
     <br>
-    <fieldset>
+   <fieldset>
+    <legend>Configuraciones de la Interfaz:</legend>
+    <label for="fontColor">Color de la fuente</label>
+    <input type="color" id="fontColor">
+    <br>
+    <label for="backgroundColor">Color de Fondo </label>
+    <input type="color" id="background" value="#000000"> 
+</fieldset>
+
+<fieldset>
     <legend>Configuración de Mi cuenta/perfil:</legend>
     <label for="userPhoto">Foto de Perfil:</label>
-    <input type="image" id="userPhoto">
+    <input type="file" id="userPhoto" accept="image/*">
     <br>
+    <input type="image" id="buttonNext" src="assets/img/next.gif" alt="Siguiente" width="50" height="50">
     <input type="hidden" id="userId" value="25XXXX">
 </fieldset>
-<br>
 
 <fieldset>
     <legend>Datos Fiscales:</legend>
@@ -167,25 +176,103 @@
 </fieldset>
 
 <fieldset>
-    <legend>Configuraciones de la Interfaz: </legend>
-    <label for="fontColor">Color de la fuente</label>
-    <input type="color" id="fontColor">
+    <legend>Solicitud de Cita:</legend>
+    <label for="appointmentDate">Fecha de la Cita: </label>
+    <input type="datetime-local" id="appointmentDate">
+    <br><br>
+    <label for="appointmentDescription">Descripción de la Cita:</label>
     <br>
-    <label for="backgroundColor">Color de Fondo </label>
-    <input type="color" id="background" value="#CCC">
+    <textarea id="appointmentDescription" rows="2" cols="40"></textarea>
 </fieldset>
 
 <fieldset>
-    <legend>Configuración de Mi cuenta/perfil: </legend>
-    <label for="userPhoto">Foto de Perfil:</label>
-    <input type="image" id="userPhoto">
-</fieldset>
+    <br>
+    <legend>Solicitud de herramientas para Servicio Mecánico: </legend>
+    <input type="radio" id="resourcesRefacction" name="resourceCategory" value="refaccion">Refaccion
+     <input type="radio" id="resourcesTool" name="resourceCategory" value="tool">Herramienta
+    <label for="toolName">Elige la pieza: </label>
+    <select>
+        <optgroup label="Pieza de Motor">
+            <option value="bujia">Bujía</option>
+            <option value="filtro_aceite">Filtro de Aceite</option>
+            <option value="banda_distribucion">Banda de Distribución</option>
+        </optgroup>
 
+        <optgroup label="Pieza de Transmisión">
+            <option value="disco_embrague">Disco de Embrague</option>
+            <option value="collarin">Collarín de Embrague</option>
+            <option value="junta_homocinetica">Junta Homocinética</option>
+            <option value="semieje">Semieje de transmisión</option>
+        </optgroup>
 
+        <optgroup label="Pieza de Suspensión">
+            <option value="amortiguador">Amortiguador</option>
+            <option value="rotula">Rótula de suspensión</option>
+        </optgroup>
+
+        <optgroup label="Llaves y Herramientas Especializadas">
+            <option value="llave_combinada">Llave combinada</option>
+            <option value="llave_torx">Llave torx</option>
+            <option value="llave_dinamometrica">Llave dinamométrica</option>
+            <option value="extractor_poleas">Extractor de poleas</option>
+            <option value="compresor_resortes">Compresor de resortes</option>
+            <option value="scanner_obd2">Escanear automotriz OBD-II</option>
+        </optgroup>
+    </select>
+    <label for="toolQuantity">Cantidad</label>
+    <input type="number" id="toolQuantity" min="1" max="10">
+    <button id="requestTool">Solicitar Herramientas</button>
+</fieldset><br>
+
+    <p style="text-weight: center; font-weight: bold;">Herramientas para la orden de servicio</p>
     
-</body>
-</html>
+    <table border="1" style="width: 25%; border-collapse: collapse; text-align: left;">
+        <thead>
+            
+                <th>No.</th>
+                <th>Herramienta</th>
+                <th>Categoría</th>
+                <th>Cantidad</th>
+                <th>Unidad</th>
 
 
-
-
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Llave combinada</td>
+                <td>Herramienta manual</td>
+                <td>4</td>
+                <td>Piezas</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Llave dinamométrica</td>
+                <td>Herramienta especializada</td>
+                <td>2</td>
+                <td>Piezas</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Extractor de poleas</td>
+                <td>Herramienta especializada</td>
+                <td>1</td>
+                <td>Juego</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Llave Torx</td>
+                <td>Herramienta manual</td>
+                <td>3</td>
+                <td>Juegos</td>
+            </tr>
+           
+                <td colspan="3" style="text-align: right;">Total de unidades</td>
+                <td>10</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>

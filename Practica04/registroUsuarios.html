@@ -10,6 +10,8 @@
         <h1>MecaGest</h1>
         <h2>Registro de Nuevos Usuarios</h2>
         <p>Complete los campos para solicitar una cuenta en el sistema.</p>
+        <link rel="stylesheet" href="/Practica04/css/styles.css">
+
     </header>
 
     <main>
@@ -51,6 +53,20 @@
             <input type=" time" id="horarioContacto" placeholder="18:00 pm">
         </fieldset>
         <br>
+        <br>
+            <h4>Redes Sociales</h4>
+            <input type="checkbox" id="socialNetworks">
+            <label for="urlFacebook">Facebook:</label>
+            <input type="url" placeholder="http://www.facebook.com/userName">
+            <br>
+            <input type="checkbox" id="socialNetworks">
+            <label for="url">Linkdn:</label>
+            <input type="url" placeholder="http://www.linkdn.com/userName">
+        <br>
+            <input type="checkbox" id="socialNetworks">
+            <label for="urlWhatsapp">WhatsApp: (Cargar QR)</label>
+            <input type="file" id="whatsAppQR" accept="image/*">
+        </fieldset>
         <fieldset>
             <legend>Datos de Acceso</legend>
             <label for="usuario">Usuario:</label>
@@ -96,6 +112,19 @@
     <input type="month" id="mesCita">
     <button type="verCita">mostrar</button>
     </form>
+
+     <legend> Visualizacion de citas por: </legend>
+                <label for="mesCitas">Por favor, elige el filtro: </label>
+
+                <input type="radio" value="Month" name="appoimentFilter" id="appoimentByMonth" checked> Mes
+                <input type="radio" value="Month" name="appoimentFilter" id="appoimentByWeek" > Semana
+                <br>
+
+                <input type="month">
+                <br>
+                <input type="week" disabled>
+                <button id="verCitas">Ver citas</button>
+
     <br>
     <h4>las citas se programadas para el mes elegido es :</h4>
     <br>
@@ -154,6 +183,12 @@
     <br>
     <label for="backgroundColor">Color de Fondo </label>
     <input type="color" id="background" value="#000000"> 
+    <br>
+    <label for="soundsVolume">Volumen de reproducción de Sonidos</label>
+    <input type="range" id="soundsVolume" min="0" max="100" value="80">
+    <button id="muteSounds">Silenciar Sonidos </button>
+</fieldset>
+
 </fieldset>
 
 <fieldset>
@@ -179,64 +214,77 @@
     <legend>Solicitud de Cita:</legend>
     <label for="appointmentDate">Fecha de la Cita: </label>
     <input type="datetime-local" id="appointmentDate">
-    <br><br>
+    <br>
+    <label for="locations">Elige la sucursal:</label>
+    <input list="locationsList">
+<datalist id="locationsList">
+    <option>Xicotepec, Centro</option>
+    <option>Xicotepec, El Tabacal</option>
+    <option>San Isidro, Tierra Negra</option>
+    <option>Necaxa, Canaditas</option>
+    <option>Huauchinango, Petrolera 1</option>
+</datalist>
+    <br>
     <label for="appointmentDescription">Descripción de la Cita:</label>
     <br>
     <textarea id="appointmentDescription" rows="2" cols="40"></textarea>
 </fieldset>
 
 <fieldset>
-    <br>
-    <legend>Solicitud de herramientas para Servicio Mecánico: </legend>
-    <input type="radio" id="resourcesRefacction" name="resourceCategory" value="refaccion">Refaccion
-     <input type="radio" id="resourcesTool" name="resourceCategory" value="tool">Herramienta
-    <label for="toolName">Elige la pieza: </label>
-    <select>
-        <optgroup label="Pieza de Motor">
+    <legend>Solicitud de Herramientas y Refacciones para Servicio Mecánico</legend>
+    
+    <label for="resourceCategory">Categoría de Recurso:</label>
+    <input type="radio" id="resourcesRefacction" name="resourceCategory" value="refaccion"> Refacción
+    <input type="radio" id="resourcesTool" name="resourceCategory" value="tool"> Herramienta
+    
+    <br><br>
+    
+    <label for="toolName">Elige la pieza:</label>
+    <select id="toolName">
+        <optgroup label="Piezas de Motor">
             <option value="bujia">Bujía</option>
             <option value="filtro_aceite">Filtro de Aceite</option>
             <option value="banda_distribucion">Banda de Distribución</option>
         </optgroup>
 
-        <optgroup label="Pieza de Transmisión">
+        <optgroup label="Piezas de Transmisión">
             <option value="disco_embrague">Disco de Embrague</option>
             <option value="collarin">Collarín de Embrague</option>
             <option value="junta_homocinetica">Junta Homocinética</option>
             <option value="semieje">Semieje de transmisión</option>
         </optgroup>
 
-        <optgroup label="Pieza de Suspensión">
+        <optgroup label="Piezas de Suspensión">
             <option value="amortiguador">Amortiguador</option>
             <option value="rotula">Rótula de suspensión</option>
         </optgroup>
 
         <optgroup label="Llaves y Herramientas Especializadas">
             <option value="llave_combinada">Llave combinada</option>
-            <option value="llave_torx">Llave torx</option>
+            <option value="llave_torx">Llave Torx</option>
             <option value="llave_dinamometrica">Llave dinamométrica</option>
             <option value="extractor_poleas">Extractor de poleas</option>
             <option value="compresor_resortes">Compresor de resortes</option>
-            <option value="scanner_obd2">Escanear automotriz OBD-II</option>
+            <option value="scanner_obd2">Escáner automotriz OBD-II</option>
         </optgroup>
     </select>
-    <label for="toolQuantity">Cantidad</label>
-    <input type="number" id="toolQuantity" min="1" max="10">
-    <button id="requestTool">Solicitar Herramientas</button>
-</fieldset><br>
 
-    <p style="text-weight: center; font-weight: bold;">Herramientas para la orden de servicio</p>
+    <label for="toolQuantity">Cantidad:</label>
+    <input type="number" id="toolQuantity" min="1" max="10">
     
-    <table border="1" style="width: 25%; border-collapse: collapse; text-align: left;">
+    <button id="requestTool">Solicitar Herramientas</button>
+    
+    <br><br>
+
+    <table border="1" style="width: 50%; border-collapse: collapse; text-align: left;" cellpadding="8">
+        <caption style="font-weight: bold; margin-bottom: 10px;">Herramientas para la orden de servicio</caption>
         <thead>
-            
+            <tr>
                 <th>No.</th>
                 <th>Herramienta</th>
                 <th>Categoría</th>
                 <th>Cantidad</th>
                 <th>Unidad</th>
-
-
-                
             </tr>
         </thead>
         <tbody>
@@ -268,9 +316,9 @@
                 <td>3</td>
                 <td>Juegos</td>
             </tr>
-           
-                <td colspan="3" style="text-align: right;">Total de unidades</td>
-                <td>10</td>
+            <tr>
+                <td colspan="3" style="text-align: right; font-weight: bold;">Total de unidades</td>
+                <td style="font-weight: bold;">10</td>
                 <td>-</td>
             </tr>
         </tbody>

@@ -1,0 +1,247 @@
+/* --- Importamos una tipografía más redondeada y amigable --- */
+@import url('https://googleapis.com');
+
+/* --- Estilos Generales --- */
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #fcf8f2; /* Un fondo crema/arena muy cálido que descansa la vista */
+    color: #4a3b32; /* Texto café oscuro en lugar de negro puro, mucho más suave */
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+main {
+    max-width: 850px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px; /* Bordes muy redondeados para un look moderno y amigable */
+    box-shadow: 0 10px 30px rgba(139, 94, 60, 0.1); /* Sombra cálida */
+}
+
+/* --- Encabezado Divertido y Casero --- */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #2e5b88, #4a90e2); /* Azul mecánico pero brillante */
+    padding: 30px;
+    border-radius: 16px;
+    color: white;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+header h2 {
+    font-size: 1.6rem;
+    margin: 10px 0 5px 0;
+    opacity: 0.9;
+}
+
+header p {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* --- Fieldsets (Cajas de secciones) con personalidad --- */
+fieldset {
+    border: 2px dashed #e1d5c9; /* Bordes discontinuos que dan una sensación artesanal */
+    border-radius: 14px;
+    padding: 25px;
+    margin-bottom: 30px;
+    background-color: #fffdfa; /* Fondo sutilmente diferente para resaltar */
+}
+
+legend {
+    font-weight: 700;
+    color: #e67e22; /* Un naranja brillante y enérgico */
+    padding: 0 15px;
+    font-size: 1.2rem;
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid #e1d5c9;
+}
+
+h4 {
+    color: #2e5b88;
+    font-size: 1.3rem;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* --- Campos de Entrada e Inputs Dinámicos --- */
+label {
+    display: block;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    color: #5c4a3c;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="url"],
+input[type="date"],
+input[type="time"],
+input[type="month"],
+input[type="week"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ebdcd0;
+    border-radius: 10px; /* Inputs redondeados */
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: 'Quicksand', sans-serif;
+    color: #4a3b32;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Efecto divertido cuando haces clic en un input */
+input:focus, select:focus, textarea:focus {
+    border-color: #4a90e2;
+    background-color: #f7faff;
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.2);
+    outline: none;
+    transform: translateY(-2px); /* Se eleva un poquito al seleccionarlo */
+}
+
+/* Inputs de tiempo en la misma fila */
+input[type="time"] {
+    display: inline-block;
+    width: 48%;
+    margin-right: 2%;
+}
+input[type="time"]:last-child {
+    margin-right: 0;
+}
+
+/* --- Casillas de Verificación y Radios Divertidos --- */
+input[type="checkbox"], 
+input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+    accent-color: #e67e22; /* Los pinta del color naranja del tema */
+    transform: scale(1.2);
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    display: inline-block;
+    margin-top: 0;
+    margin-right: 20px;
+    font-weight: 600;
+    color: #4a3b32;
+}
+
+/* --- Botones con súper personalidad --- */
+button, 
+input[type="submit"], 
+input[type="reset"] {
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Quicksand', sans-serif;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-right: 12px;
+    margin-top: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Botón Enviar (Verde hogareño) */
+input[type="submit"] {
+    background-color: #2ecc71;
+    color: white;
+}
+input[type="submit"]:hover:not(:disabled) {
+    background-color: #27ae60;
+    transform: scale(1.05);
+}
+input[type="submit"]:disabled {
+    background-color: #d5dbdb;
+    color: #95a5a6;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* Botón Borrar (Rojo/Coral cálido) */
+input[type="reset"] {
+    background-color: #ff6b6b;
+    color: white;
+}
+input[type="reset"]:hover {
+    background-color: #ee5253;
+    transform: scale(1.05);
+}
+
+/* Botones normales (Azul) */
+button {
+    background-color: #4a90e2;
+    color: white;
+}
+button:hover {
+    background-color: #357abd;
+    transform: scale(1.05);
+}
+
+/* --- Tabla de Citas Estilo "Agenda de Casa" --- */
+table {
+    width: 100%;
+    border-collapse: separate; /* Permite redondear las esquinas de la tabla */
+    border-spacing: 0;
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(184, 150, 119, 0.15);
+    border: 2px solid #e1d5c9;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border: none !important;
+}
+
+th {
+    background-color: #2e5b88;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+tr:border-bottom {
+    border-bottom: 1px solid #f5ebe0 !important;
+}
+
+/* Filas intercaladas con un color crema súper suave */
+tr:nth-child(even) {
+    background-color: #fff9f3;
+}
+
+/* Animación cuando pasas el mouse por encima de una fila */
+tr:hover {
+    background-color: #f5ebe0;
+    transition: background-color 0.2s ease;
+}
+
+/* --- Limpieza de saltos de línea antiguos --- */
+br {
+    display: none;
+}

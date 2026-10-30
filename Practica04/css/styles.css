@@ -93,7 +93,6 @@ input[type="tel"],
 input[type="password"],
 input[type="url"],
 input[type="date"],
-input[type="time"],
 input[type="month"],
 input[type="week"],
 select,
@@ -119,11 +118,17 @@ input:focus, select:focus, textarea:focus {
     transform: translateY(-2px); /* Se eleva un poquito al seleccionarlo */
 }
 
-/* Inputs de tiempo en la misma fila */
+/* Inputs de tiempo en la misma fila ajustados para que no se rompan */
 input[type="time"] {
     display: inline-block;
-    width: 48%;
+    width: 47%;
     margin-right: 2%;
+    padding: 12px 15px;
+    border: 2px solid #ebdcd0;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: 'Quicksand', sans-serif;
 }
 input[type="time"]:last-child {
     margin-right: 0;
@@ -138,6 +143,7 @@ input[type="radio"] {
     transform: scale(1.2);
 }
 
+/* Ajuste para que las etiquetas de los checkbox se queden a la par */
 input[type="checkbox"] + label,
 input[type="radio"] + label {
     display: inline-block;
@@ -216,7 +222,6 @@ table {
 th, td {
     padding: 15px;
     text-align: left;
-    border: none !important;
 }
 
 th {
@@ -226,8 +231,8 @@ th {
     font-size: 0.95rem;
 }
 
-tr:border-bottom {
-    border-bottom: 1px solid #f5ebe0 !important;
+tr {
+    border-bottom: 1px solid #f5ebe0;
 }
 
 /* Filas intercaladas con un color crema súper suave */
@@ -239,9 +244,4 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #f5ebe0;
     transition: background-color 0.2s ease;
-}
-
-/* --- Limpieza de saltos de línea antiguos --- */
-br {
-    display: none;
 }

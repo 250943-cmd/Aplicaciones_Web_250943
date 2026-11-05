@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MecaGest: Formulario de Registro de Nuevos Usuarios - 250943</title>
-    <!-- La hoja de estilos siempre debe ir en el head -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -15,23 +15,24 @@
     </header>
 
     <main>
-        <form action="" method="POST">
+        <form id="formularioRegistro" action="" method="POST">
+
             <!-- DATOS PERSONALES -->
-            <fieldset>
+            <fieldset class="form-section">
                 <legend>Datos Personales</legend>
-                
+
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" placeholder="Yair" required>
                 <br>
-                
+
                 <label for="apPaterno">Apellido Paterno:</label>
                 <input type="text" id="apPaterno" placeholder="Sampayo" required>
                 <br>
-                
+
                 <label for="apMaterno">Apellido Materno:</label>
                 <input type="text" id="apMaterno" placeholder="Viveros" required>
                 <br>
-                
+
                 <label for="genero">Género:</label>
                 <select id="genero">
                     <option>Femenino</option>
@@ -39,118 +40,162 @@
                     <option>Prefiero no decirlo</option>
                 </select>
                 <br>
-                
+
                 <label for="fechaNacimiento">Fecha de Nacimiento:</label>
                 <input type="date" id="fechaNacimiento">
-                <!-- Contenedor dinámico donde JS mostrará el resultado de la edad -->
-                <span id="resultadoEdad" style="font-weight: bold; display: block; margin-top: 10px; color: #e67e22;">Selecciona una fecha para calcular tu edad.</span>
+
+                <span id="resultadoEdad" style="font-weight: bold; display: block; margin-top: 10px; color: #e67e22;">
+                    Selecciona una fecha para calcular tu edad.
+                </span>
                 <br>
+
+                <div class="botones-seccion">
+                    <button type="button" class="btn-siguiente">Siguiente</button>
+                    <button type="reset" class="btn-borrar">Borrar</button>
+                </div>
             </fieldset>
-            <br>
 
             <!-- DATOS DE CONTACTO -->
-            <fieldset>
+            <fieldset class="form-section" hidden>
                 <legend>Datos de Contacto</legend>
+
                 <label for="email">Correo electrónico:</label>
                 <input type="email" id="email" placeholder="yairsampayo48@gmail.com">
                 <br>
-                
+
                 <label for="numTelefono">Número Telefónico:</label>
                 <input type="tel" id="numTelefono" placeholder="(+52) 1234-5678">
                 <br>
-                
+
                 <label for="horarioContacto">Favor de contactar en el horario:</label>
                 <input type="time" id="horarioContactoInicio" placeholder="09:00 am">
                 <input type="time" id="horarioContactoFin" placeholder="18:00 pm">
+
+                <div class="botones-seccion">
+                    <button type="button" class="btn-siguiente">Siguiente</button>
+                    <button type="reset" class="btn-borrar">Borrar</button>
+                </div>
             </fieldset>
-            <br>
 
             <!-- REDES SOCIALES -->
-            <fieldset>
+            <fieldset class="form-section" hidden>
                 <legend>Redes Sociales</legend>
+
                 <input type="checkbox" id="socialFacebook">
                 <label for="socialFacebook">Facebook:</label>
                 <input type="url" placeholder="http://www.facebook.com/userName">
                 <br><br>
-                
+
                 <input type="checkbox" id="socialLinkedin">
                 <label for="socialLinkedin">LinkedIn:</label>
                 <input type="url" placeholder="http://linkedin.com">
                 <br><br>
-                
+
                 <input type="checkbox" id="socialWhatsapp">
                 <label for="socialWhatsapp">WhatsApp: (Cargar QR)</label>
                 <input type="file" id="whatsAppQR" accept="image/*">
+
+                <div class="botones-seccion">
+                    <button type="button" class="btn-siguiente">Siguiente</button>
+                    <button type="reset" class="btn-borrar">Borrar</button>
+                </div>
             </fieldset>
-            <br>
 
             <!-- DATOS DE ACCESO -->
-            <fieldset>
+            <fieldset class="form-section" hidden>
                 <legend>Datos de Acceso</legend>
+
                 <label for="usuario">Usuario:</label>
                 <input type="text" id="usuario" placeholder="yairsampayo" required>
                 <br>
-                
+
                 <label for="contrasena">Contraseña:</label>
                 <input type="password" id="contrasena" placeholder="********" required>
                 <br>
-                
+
                 <label for="confirmarContrasena">Confirmar Contraseña:</label>
                 <input type="password" id="confirmarContrasena" placeholder="********" required>
+
+                <div class="botones-seccion">
+                    <button type="button" class="btn-siguiente">Siguiente</button>
+                    <button type="reset" class="btn-borrar">Borrar</button>
+                </div>
             </fieldset>
-            <br>
 
             <!-- DATOS DE UBICACIÓN -->
-            <fieldset>
+            <fieldset class="form-section" hidden>
                 <legend>Datos de Ubicación</legend>
+
                 <label for="direccion">Dirección: </label>
                 <input type="text" id="direccion" placeholder="Calle, Número, Colonia, Ciudad, Estado, CP">
-                
+
                 <label for="pais">País: </label>
                 <input type="text" id="pais" placeholder="México">
-                
+
                 <label for="estado">Estado: </label>
                 <input type="text" id="estado" placeholder="Ciudad de México">
-                
+
                 <label for="ciudad">Ciudad: </label>
                 <input type="text" id="ciudad" placeholder="Ciudad de México">
-                
+
                 <label for="codigoPostal">Código Postal: </label>
                 <input type="text" id="codigoPostal" placeholder="01234">
+
+                <div class="botones-seccion">
+                    <button type="button" class="btn-siguiente">Siguiente</button>
+                    <button type="reset" class="btn-borrar">Borrar</button>
+                </div>
             </fieldset>
-            <br>
 
             <!-- TÉRMINOS Y ENVÍO -->
-            <input type="checkbox" id="validado" required>
-            <label for="validado">Acepto los términos y condiciones</label>
-            <br><br>
-            <input type="submit" value="Enviar" disabled> 
-            <input type="reset" value="Borrar"> 
+            <fieldset class="form-section" hidden>
+                <legend>Términos y envío</legend>
+
+                <input type="checkbox" id="validado" required>
+                <label for="validado">Acepto los términos y condiciones</label>
+                <br><br>
+
+                <div class="botones-seccion">
+                    <input type="submit" value="Enviar" disabled>
+                    <input type="reset" value="Borrar" class="btn-borrar">
+                </div>
+            </fieldset>
+
         </form>
+
         <br>
 
         <!-- VISUALIZACIÓN DE CITAS -->
         <fieldset>
             <legend>Visualización de citas</legend>
+
             <form>
                 <label for="mesCita">Fecha de la cita:</label>
                 <input type="month" id="mesCita">
                 <button type="submit">Mostrar</button>
             </form>
+
             <br>
 
             <label>Por favor, elige el filtro: </label>
-            <input type="radio" value="Month" name="appointmentFilter" id="appointmentByMonth" checked> <label for="appointmentByMonth">Mes</label>
-            <input type="radio" value="Week" name="appointmentFilter" id="appointmentByWeek"> <label for="appointmentByWeek">Semana</label>
+            <input type="radio" value="Month" name="appointmentFilter" id="appointmentByMonth" checked>
+            <label for="appointmentByMonth">Mes</label>
+
+            <input type="radio" value="Week" name="appointmentFilter" id="appointmentByWeek">
+            <label for="appointmentByWeek">Semana</label>
+
             <br><br>
 
             <input type="month">
             <br><br>
+
             <input type="week" disabled>
-            <button id="verCitas">Ver citas</button>
+            <button id="verCitas" type="button">Ver citas</button>
+
             <br><br>
 
             <h4>Las citas programadas para el mes elegido son:</h4>
+
             <table>
                 <thead>
                     <tr>
@@ -161,6 +206,7 @@
                         <th>Estatus Actual</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <tr>
                         <td>1.</td>
@@ -169,6 +215,7 @@
                         <td>10 de Octubre de 2026</td>
                         <td>Atendida</td>
                     </tr>
+
                     <tr>
                         <td>2.</td>
                         <td>Cita de valoración con el cliente: Yair Sampayo, Unidad: Renault, Duster 2014</td>
@@ -176,6 +223,7 @@
                         <td>16 de Octubre de 2026</td>
                         <td>Programada</td>
                     </tr>
+
                     <tr>
                         <td>3.</td>
                         <td>Cita de revisión con el cliente: Mauricio Mejía, Unidad: Volkswagen, Jetta 2020</td>
@@ -183,6 +231,7 @@
                         <td>17 de Octubre de 2026</td>
                         <td>Programada</td>
                     </tr>
+
                     <tr>
                         <td>4.</td>
                         <td>Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
@@ -190,6 +239,7 @@
                         <td>16 de Octubre de 2026</td>
                         <td>Cancelada</td>
                     </tr>
+
                     <tr>
                         <td>5.</td>
                         <td>Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
@@ -202,7 +252,6 @@
         </fieldset>
     </main>
 
-    <!-- Vinculación del Script JS con defer para asegurar que cargue los elementos -->
     <script src="js/main.js" defer></script>
 </body>
 </html>

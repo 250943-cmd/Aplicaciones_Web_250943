@@ -1,4 +1,3 @@
-
 // 1. Imprimir el mensaje en la Consola de Depuración
 console.log("Hola Mundo , desde JavaScript");
 
@@ -73,6 +72,22 @@ formularioRegistro.addEventListener("reset", function () {
         "edad-estado--error"
     );
 
+    // --- NUEVO: Limpiar error de teléfono y reiniciar redes sociales al borrar ---
+    if (errorTelefono && inputTelefono) {
+        errorTelefono.style.display = "none";
+        inputTelefono.style.borderColor = "";
+        inputTelefono.setCustomValidity("");
+    }
+
+    if (urlFacebook) urlFacebook.disabled = true;
+    if (urlLinkedin) urlLinkedin.disabled = true;
+    if (whatsAppQR) whatsAppQR.disabled = true;
+
+    if (contenedorPreviewQR && previewQR) {
+        previewQR.src = "";
+        contenedorPreviewQR.style.display = "none";
+    }
+
 });
 
 // 7. Calcular la edad del usuario
@@ -145,6 +160,82 @@ fechaNacimiento.addEventListener("change", function () {
 
 });
 
-// 8. Iniciar el formulario en la primera sección
+// 8. Validar que el teléfono no contenga letras
+const inputTelefono = document.getElementById("numTelefono");
+const errorTelefono = document.getElementById("errorTelefono");
+
+if (inputTelefono) {
+    inputTelefono.addEventListener("input", function () {
+        const contieneLetras = /[a-zA-ZñÑáéíóúÁÉÍÓÚ]/.test(this.value);
+
+        if (contieneLetras) {
+            if (errorTelefono) errorTelefono.style.display = "block";
+            this.style.borderColor = "#e74c3c";
+            this.setCustomValidity("No se permiten letras en el número telefónico.");
+            this.reportValidity();
+        } else {
+            if (errorTelefono) errorTelefono.style.display = "none";
+            this.style.borderColor = "";
+            this.setCustomValidity("");
+        }
+    });
+}
+
+// 9. Habilitar campos de Redes Sociales solo al marcar su checkbox y mostrar vista previa del QR
+const socialFacebook = document.getElementById("socialFacebook");
+const urlFacebook = document.getElementById("urlFacebook");
+
+const socialLinkedin = document.getElementById("socialLinkedin");
+const urlLinkedin = document.getElementById("urlLinkedin");
+
+const socialWhatsapp = document.getElementById("socialWhatsapp");
+const whatsAppQR = document.getElementById("whatsAppQR");
+const contenedorPreviewQR = document.getElementById("contenedorPreviewQR");
+const previewQR = document.getElementById("previewQR");
+
+function vincularCheckboxConInput(checkbox, input) {
+    if (checkbox && input) {
+        input.disabled = !checkbox.checked;
+
+        checkbox.addEventListener("change", function () {
+            if (this.checked) {
+                input.disabled = false;
+                input.focus();
+            } else {
+                input.disabled = true;
+                input.value = "";
+
+                if (input === whatsAppQR && contenedorPreviewQR && previewQR) {
+                    previewQR.src = "";
+                    contenedorPreviewQR.style.display = "none";
+                }
+            }
+        });
+    }
+}
+
+vincularCheckboxConInput(socialFacebook, urlFacebook);
+vincularCheckboxConInput(socialLinkedin, urlLinkedin);
+vincularCheckboxConInput(socialWhatsapp, whatsAppQR);
+
+if (whatsAppQR && contenedorPreviewQR && previewQR) {
+    whatsAppQR.addEventListener("change", function () {
+        const archivo = this.files[0];
+
+        if (archivo) {
+            const lector = new FileReader();
+            lector.onload = function (e) {
+                previewQR.src = e.target.result;
+                contenedorPreviewQR.style.display = "block";
+            };
+            lector.readAsDataURL(archivo);
+        } else {
+            previewQR.src = "";
+            contenedorPreviewQR.style.display = "none";
+        }
+    });
+}
+
+// 10. Iniciar el formulario en la primera sección
 mostrarSeccion(0);
 botonEnviar.disabled = true;

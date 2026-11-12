@@ -55,97 +55,132 @@
                 </div>
             </fieldset>
 
-            <!-- DATOS DE CONTACTO -->
-            <fieldset class="form-section" hidden>
-                <legend>Datos de Contacto</legend>
+           <!-- DATOS DE CONTACTO -->
+<fieldset class="form-section" hidden>
+    <legend>Datos de Contacto</legend>
 
-                <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" placeholder="yairsampayo48@gmail.com">
-                <br>
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" placeholder="yairsampayo48@gmail.com">
+    <br>
 
-                <label for="numTelefono">Número Telefónico:</label>
-                <input type="tel" id="numTelefono" placeholder="(+52) 1234-5678">
-                <br>
+    <label for="numTelefono">Número Telefónico:</label>
+    <input 
+        type="tel" 
+        id="numTelefono" 
+        placeholder="(+52) 1234-5678"
+        pattern="^[\d\s\(\)\-\+]+$"
+        title="Solo se permiten números, espacios y los símbolos +, -, ( )"
+        required
+    >
+    <small id="errorTelefono" style="color: #e74c3c; display: none; font-size: 0.85em;">
+        Error: El número telefónico no puede contener letras.
+    </small>
+    <br>
 
-                <label for="horarioContacto">Favor de contactar en el horario:</label>
-                <input type="time" id="horarioContactoInicio" placeholder="09:00 am">
-                <input type="time" id="horarioContactoFin" placeholder="18:00 pm">
+    <label for="horarioContacto">Favor de contactar en el horario:</label>
+    <input type="time" id="horarioContactoInicio" placeholder="09:00 am">
+    <input type="time" id="horarioContactoFin" placeholder="18:00 pm">
 
-                <div class="botones-seccion">
-                    <button type="button" class="btn-siguiente">Siguiente</button>
-                    <button type="reset" class="btn-borrar">Borrar</button>
-                </div>
-            </fieldset>
+    <div class="botones-seccion">
+        <button type="button" class="btn-siguiente">Siguiente</button>
+        <button type="reset" class="btn-borrar">Borrar</button>
+    </div>
+</fieldset>
 
-            <!-- REDES SOCIALES -->
-            <fieldset class="form-section" hidden>
-                <legend>Redes Sociales</legend>
 
-                <input type="checkbox" id="socialFacebook">
-                <label for="socialFacebook">Facebook:</label>
-                <input type="url" placeholder="http://www.facebook.com/userName">
-                <br><br>
+          <!-- REDES SOCIALES -->
+<fieldset class="form-section" hidden>
+    <legend>Redes Sociales</legend>
 
-                <input type="checkbox" id="socialLinkedin">
-                <label for="socialLinkedin">LinkedIn:</label>
-                <input type="url" placeholder="http://linkedin.com">
-                <br><br>
+    <input type="checkbox" id="socialFacebook">
+    <label for="socialFacebook">Facebook:</label>
+    <input type="url" id="urlFacebook" placeholder="http://facebook.com" disabled>
+    <br><br>
 
-                <input type="checkbox" id="socialWhatsapp">
-                <label for="socialWhatsapp">WhatsApp: (Cargar QR)</label>
-                <input type="file" id="whatsAppQR" accept="image/*">
+    <input type="checkbox" id="socialLinkedin">
+    <label for="socialLinkedin">LinkedIn:</label>
+    <input type="url" id="urlLinkedin" placeholder="http://linkedin.com" disabled>
+    <br><br>
 
-                <div class="botones-seccion">
-                    <button type="button" class="btn-siguiente">Siguiente</button>
-                    <button type="reset" class="btn-borrar">Borrar</button>
-                </div>
-            </fieldset>
+    <input type="checkbox" id="socialWhatsapp">
+    <label for="socialWhatsapp">WhatsApp: (Cargar QR)</label>
+    <input type="file" id="whatsAppQR" accept="image/*" disabled>
 
-            <!-- DATOS DE ACCESO -->
-            <fieldset class="form-section" hidden>
-                <legend>Datos de Acceso</legend>
+    <!-- Apartado para mostrar la imagen seleccionada -->
+    <div id="contenedorPreviewQR" style="margin-top: 12px; display: none;">
+        <p style="font-size: 0.9em; margin-bottom: 5px;">Vista previa del QR:</p>
+        <img id="previewQR" src="" alt="Código QR de WhatsApp" style="max-width: 180px; border: 1px solid #ccc; border-radius: 8px; padding: 4px;">
+    </div>
 
-                <label for="usuario">Usuario:</label>
-                <input type="text" id="usuario" placeholder="yairsampayo" required>
-                <br>
+    <div class="botones-seccion">
+        <button type="button" class="btn-siguiente">Siguiente</button>
+        <button type="reset" class="btn-borrar">Borrar</button>
+    </div>
+</fieldset>
 
-                <label for="contrasena">Contraseña:</label>
-                <input type="password" id="contrasena" placeholder="********" required>
-                <br>
 
-                <label for="confirmarContrasena">Confirmar Contraseña:</label>
-                <input type="password" id="confirmarContrasena" placeholder="********" required>
+          <!-- DATOS DE ACCESO -->
+<fieldset class="form-section" hidden>
+    <legend>Datos de Acceso</legend>
 
-                <div class="botones-seccion">
-                    <button type="button" class="btn-siguiente">Siguiente</button>
-                    <button type="reset" class="btn-borrar">Borrar</button>
-                </div>
-            </fieldset>
+    <label for="usuario">Usuario:</label>
+    <input type="text" id="usuario" placeholder="yairsampayo" required>
+    <br>
+
+    <label for="contrasena">Contraseña:</label>
+    <input type="password" id="contrasena" placeholder="********" required>
+    <br>
+
+    <label for="confirmarContrasena">Confirmar Contraseña:</label>
+    <input type="password" id="confirmarContrasena" placeholder="********" required>
+    <small id="errorContrasena" style="color: #e74c3c; display: none; font-size: 0.85em;">
+        Error: Las contraseñas no coinciden.
+    </small>
+
+    <div class="botones-seccion">
+        <button type="button" class="btn-siguiente">Siguiente</button>
+        <button type="reset" class="btn-borrar">Borrar</button>
+    </div>
+</fieldset>
+
 
             <!-- DATOS DE UBICACIÓN -->
-            <fieldset class="form-section" hidden>
-                <legend>Datos de Ubicación</legend>
+<fieldset class="form-section" hidden>
+    <legend>Datos de Ubicación</legend>
 
-                <label for="direccion">Dirección: </label>
-                <input type="text" id="direccion" placeholder="Calle, Número, Colonia, Ciudad, Estado, CP">
+    <label for="direccion">Dirección: </label>
+    <input type="text" id="direccion" placeholder="Calle, Número, Colonia, Ciudad, Estado, CP">
 
-                <label for="pais">País: </label>
-                <input type="text" id="pais" placeholder="México">
+    <label for="pais">País: </label>
+    <input type="text" id="pais" placeholder="México">
 
-                <label for="estado">Estado: </label>
-                <input type="text" id="estado" placeholder="Ciudad de México">
+    <label for="estado">Estado: </label>
+    <select id="estado">
+        <option value="" disabled selected>Selecciona un estado</option>
+        <option value="Puebla">Puebla</option>
+        <option value="Ciudad de México">Ciudad de México</option>
+        <option value="Hidalgo">Hidalgo</option>
+        <option value="Veracruz">Veracruz</option>
+        <option value="Estado de México">Estado de México</option>
+    </select>
 
-                <label for="ciudad">Ciudad: </label>
-                <input type="text" id="ciudad" placeholder="Ciudad de México">
+    <label for="ciudad">Ciudad: </label>
+    <select id="ciudad" disabled>
+        <option value="xicotepec">xicotepec</option>
+        <option value="Huauchinango"> Huauchinango</option>
+        <option value="Tenango">Tenango</option>
+        <option value="Piedras Negras">Piedras Negras</option>
+        <option value="" disabled selected>Primero selecciona un estado</option>
+    </select>
 
-                <label for="codigoPostal">Código Postal: </label>
-                <input type="text" id="codigoPostal" placeholder="01234">
+    <label for="codigoPostal">Código Postal: </label>
+    <input type="text" id="codigoPostal" placeholder="01234">
 
-                <div class="botones-seccion">
-                    <button type="button" class="btn-siguiente">Siguiente</button>
-                    <button type="reset" class="btn-borrar">Borrar</button>
-                </div>
-            </fieldset>
+    <div class="botones-seccion">
+        <button type="button" class="btn-siguiente">Siguiente</button>
+        <button type="reset" class="btn-borrar">Borrar</button>
+    </div>
+</fieldset>
 
             <!-- TÉRMINOS Y ENVÍO -->
             <fieldset class="form-section" hidden>

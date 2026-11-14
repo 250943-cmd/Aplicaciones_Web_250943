@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MecaGest: Próximas citas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>MecaGest</h1>
+        <h2>Próximas citas</h2>
+        <p>Consulta de citas de ejemplo. Información de demostración sin base de datos.</p>
+    </header>
+
+    <nav class="menu-nav" aria-label="Módulos">
+        <a href="registrosUsuarios.html">Registro de usuarios</a>
+        <a href="proximas_citas.html">Próximas citas</a>
+        <a href="configuracion.html">Configuración</a>
+        <a href="salidas_almacen.html">Salidas de almacén</a>
+    </nav>
+
+    <main>
+        <form onsubmit="return false;">
+            <fieldset>
+                <legend>Visualización de Citas</legend>
+                <p><strong>Filtrar citas por:</strong></p>
+                
+                <!-- Radio buttons en una sola línea -->
+                <div style="display: flex; gap: 25px; align-items: center; margin: 12px 0 20px 0;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <input type="radio" value="Month" name="appoimentFilter" id="appoimentByMonth" checked style="width: auto; margin: 0;">
+                        <label for="appoimentByMonth" style="display: inline-block; margin: 0; cursor: pointer; font-weight: normal;">Mes</label>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <input type="radio" value="Week" name="appoimentFilter" id="appoimentByWeek" style="width: auto; margin: 0;">
+                        <label for="appoimentByWeek" style="display: inline-block; margin: 0; cursor: pointer; font-weight: normal;">Semana</label>
+                    </div>
+                </div>
+
+                <!-- Grupo de Mes -->
+                <div class="input-group" id="grupoMes">
+                    <label for="filtroMes">Seleccionar mes</label>
+                    <input type="month" id="filtroMes" value="2026-10">
+                </div>
+
+                <!-- Grupo de Semana (inicialmente oculto) -->
+                <div class="input-group oculta" id="grupoSemana">
+                    <label for="filtroSemana">Seleccionar semana</label>
+                    <input type="week" id="filtroSemana">
+                </div>
+
+                <button type="button" id="verCitas" class="btn-primary" style="margin-top: 15px;">Ver citas</button>
+
+                <h4>Citas programadas <span class="etiqueta-tipo">5 registros</span></h4>
+                <p class="ayuda">Datos de ejemplo del mes de octubre de 2026.</p>
+                <table>
+                    <tr><th>No.</th><th>Nombre y unidad</th><th>Descripción</th><th>Fecha programada</th><th>Estatus actual</th></tr>
+                    <tr><td>1.</td><td>Cita de entrega de unidad reparada con el cliente: Mauricio Mejía, Unidad: Volkswagen, Jetta 2020</td><td>Se realizó un cambio de bujías, la unidad está lista para entrega</td><td>10 de Octubre de 2026</td><td><span class="estatus estatus--programada">Programada</span></td></tr>
+                    <tr><td>2.</td><td>Cita de valoración con el cliente: Carlos Hernández, Unidad: Nissan, Versa 2021</td><td>El cliente solicita una revisión del sistema de frenos debido a un ruido al momento de frenar.</td><td>12 de Octubre de 2026</td><td><span class="estatus estatus--atendida">Atendida</span></td></tr>
+                    <tr><td>3.</td><td>Cita de valoración con el cliente: Mauricio Mejía, Unidad: Volkswagen, Jetta 2020</td><td>A la unidad se le hicieron cambio de bujías, pero el cliente reporta un sonido extraño.</td><td>17 de Octubre de 2026</td><td><span class="estatus estatus--programada">Programada</span></td></tr>
+                    <tr><td>4.</td><td>Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td><td>El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td><td>16 de Octubre de 2026</td><td><span class="estatus estatus--cancelada">Cancelada</span></td></tr>
+                    <tr><td>5.</td><td>Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td><td>El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td><td>20 de Octubre de 2026</td><td><span class="estatus estatus--reprogramada">Reprogramada</span></td></tr>
+                </table>
+
+                <h4>Búsqueda rápida <span class="etiqueta-tipo">input: search</span></h4>
+                <input type="search" id="busquedaCitas" placeholder="Buscar por cliente o vehículo...">
+                <button type="button" id="consultarRegistros" class="btn-primary" style="margin-top: 15px;">Consultar registros</button>
+                <small class="ayuda">Los controles de búsqueda, filtro y consulta aún no modifican los resultados mostrados.</small>
+            </fieldset>
+        </form>
+    </main>
+</body>
+</html>

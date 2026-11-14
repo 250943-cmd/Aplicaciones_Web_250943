@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MecaGest: Configuración</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>MecaGest</h1>
+        <h2>Configuración</h2>
+        <p>Personalización de interfaz y cuenta. Los cambios se aplican en tiempo real.</p>
+    </header>
+
+    <nav class="menu-nav" aria-label="Módulos">
+        <a href="registrosUsuarios.html">Registro de usuarios</a>
+        <a href="proximas_citas.html">Próximas citas</a>
+        <a href="configuracion.html">Configuración</a>
+        <a href="salidas_almacen.html">Salidas de almacén</a>
+    </nav>
+
+    <main>
+        <fieldset>
+            <legend>Configuración de la Interfaz</legend>
+            <h4>Paleta MecaGest (Colores del Sistema)</h4>
+            
+            <!-- Círculos actualizados con los nuevos colores de la paleta -->
+            <div class="paleta" style="display: flex; gap: 10px; margin: 12px 0 15px 0;" aria-hidden="true">
+                <span style="width: 30px; height: 30px; border-radius: 50%; background:#011627; display: inline-block; border: 1px solid var(--borde);" title="Azul Oscuro"></span>
+                <span style="width: 30px; height: 30px; border-radius: 50%; background:#FDFFFC; display: inline-block; border: 1px solid var(--borde);" title="Blanco Suave"></span>
+                <span style="width: 30px; height: 30px; border-radius: 50%; background:#2EC4B6; display: inline-block; border: 1px solid var(--borde);" title="Turquesa Vibrante"></span>
+                <span style="width: 30px; height: 30px; border-radius: 50%; background:#E71D36; display: inline-block; border: 1px solid var(--borde);" title="Rojo Intenso"></span>
+                <span style="width: 30px; height: 30px; border-radius: 50%; background:#FF9F1C; display: inline-block; border: 1px solid var(--borde);" title="Naranja Alerta"></span>
+            </div>
+
+            <label for="primaryColor">Color Principal (Turquesa MecaGest)</label>
+            <input type="color" id="primaryColor" value="#2EC4B6">
+            <br>
+            <label for="backgroundColor">Color de Fondo General</label>
+            <input type="color" id="backgroundColor" value="#FDFFFC">
+            <br>
+            <label for="soundsVolume">Volumen de reproducción de Sonidos</label>
+            
+            <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
+                <input type="range" id="soundsVolume" min="0" max="100" value="80" style="flex: 1; cursor: pointer;">
+                <span id="volumenTexto" style="font-weight: 600; min-width: 45px; text-align: right; color: var(--texto-secundario);">80</span>
+            </div>
+            
+            <button type="button" id="muteSounds" class="btn-secondary" style="margin-top: 18px; display: inline-flex; align-items: center; gap: 8px;">
+                <i id="iconoBotonAudio" class="fas fa-volume-high"></i> <span id="textoBotonAudio">Silenciar sonidos</span>
+            </button>
+            <p class="ayuda" style="margin-top: 12px;">Modifica los selectores superiores para cambiar el color principal y el fondo de toda la aplicación al instante.</p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Configuración de Mi cuenta/perfil</legend>
+            <h4>Perfil de MecaGest</h4>
+            <label for="userPhoto">Foto de Perfil</label>
+            
+            <!-- Círculo a la izquierda y selector de archivo a la derecha -->
+            <div style="display: flex; align-items: center; gap: 20px; margin-top: 10px;">
+                <!-- Círculo de vista previa -->
+                <div style="width: 70px; height: 70px; border-radius: 50%; border: 2px dashed var(--borde); background: var(--fondo); display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;" id="avatarContainer">
+                    <img id="avatarPreview" src="" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; display: none;">
+                    <i id="avatarPlaceholder" class="fas fa-user" style="color: var(--texto-secundario); font-size: 1.5rem;"></i>
+                </div>
+                <!-- Input de archivo -->
+                <div style="flex: 1;">
+                    <input type="file" id="userPhoto" accept="image/*">
+                    <small class="ayuda" style="display: block; margin-top: 6px;">Formatos de imagen admitidos por el navegador.</small>
+                </div>
+            </div>
+
+            <br>
+            <label>Botón gráfico <span class="etiqueta-tipo">input: image</span></label><br>
+            <input type="image" id="buttonNext" src="imagenes/next.gif" alt="Siguiente" style="width: 15%; height: 100px; object-fit: cover; cursor: pointer; display: block;" disabled>
+            <small class="ayuda">Control deshabilitado: el envío gráfico se conectará en clases posteriores.</small>
+            <input type="hidden" id="userId" value="250910">
+            <small class="ayuda"><strong>input: hidden</strong> — identificador de ejemplo presente en el código HTML, pero no visible en pantalla.</small>
+            <label>Botón de envío <span class="etiqueta-tipo">input: submit</span></label><br>
+            <input type="submit" id="guardarPerfil" value="Guardar (demostración)" disabled>
+            <small class="ayuda">Deshabilitado hasta conectar persistencia mediante PHP.</small>
+        </fieldset>
+    </main>
+</body>
+</html>

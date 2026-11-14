@@ -1,0 +1,487 @@
+
+:root {
+    /* =========================================
+       NUEVA PALETA CÁLIDA ME CAGEST
+    ========================================= */
+    --azul-oscuro: #653B2B;       /* Café oscuro */
+    --azul-principal: #D98242;    /* Naranja cálido */
+    --azul-boton: #A64B32;        /* Terracota */
+    --color-advertencia: #E6A23C; /* Mostaza */
+
+    --fondo: #F5E6CC;             /* Crema */
+    --blanco: #FFFFFF;
+    --borde: #E4CDB5;
+    --texto: #35251F;
+    --texto-secundario: #765849;
+
+    --verde: #80652F;             /* Oliva cálido */
+    --amarillo: #B7791F;
+    --rojo: #B83232;
+
+    --azul-claro: #F2D9C3;        /* Crema cálido */
+}
+
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: inherit;
+}
+
+/* =========================================
+   MENÚ DE NAVEGACIÓN
+========================================= */
+.menu-nav {
+    background-color: var(--azul-oscuro);
+    padding: 14px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-top: 0 !important;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.menu-nav a {
+    color: #F5E6CC;
+    text-decoration: none;
+    padding: 0 18px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.menu-nav a:not(:last-child):after {
+    content: "|";
+    margin-left: 18px;
+    color: rgba(255,255,255,0.3);
+    font-weight: 300;
+}
+
+.menu-nav a:hover,
+.menu-nav a.activo {
+    color: var(--azul-principal);
+    font-weight: 600;
+}
+
+/* =========================================
+   BARRA WIZARD HORIZONTAL
+========================================= */
+.wizard-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: #FFFFFF;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(101,59,43,0.08);
+}
+
+.wizard-bar .line {
+    flex: 1;
+    height: 2px;
+    background: var(--borde);
+    margin: 0 12px;
+}
+
+.wizard-paso-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #F2D9C3;
+    color: var(--texto-secundario);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.wizard-paso-item.activo {
+    background-color: var(--azul-boton);
+    color: #FFFFFF;
+    box-shadow: 0 0 0 4px rgba(166,75,50,0.15);
+}
+
+.wizard-paso-item.completado {
+    background-color: var(--verde);
+    color: #FFFFFF;
+}
+
+/* =========================================
+   VISIBILIDAD DE PASOS DEL WIZARD
+========================================= */
+.wizard-paso {
+    display: none !important;
+}
+
+.wizard-paso.paso-activo {
+    display: block !important;
+}
+
+/* =========================================
+   ENCABEZADO Y CONTENEDOR PRINCIPAL
+========================================= */
+header {
+    background-color: var(--azul-oscuro);
+    color: #FFFFFF;
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 0 !important;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+header h2 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    opacity: 0.95;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+}
+
+main {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 40px 40px;
+}
+
+/* =========================================
+   FORMULARIOS Y SECCIONES
+========================================= */
+fieldset {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 22px;
+    box-shadow: 0 10px 25px -5px rgba(101,59,43,0.12),
+                0 8px 10px -6px rgba(101,59,43,0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+legend {
+    color: var(--azul-oscuro);
+    background-color: var(--azul-claro);
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+    color: var(--texto-secundario);
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    margin-top: 10px;
+}
+
+/* =========================================
+   CAMPOS DE FORMULARIO
+   SUBRAYADO DINÁMICO
+========================================= */
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="reset"]):not([type="color"]),
+select,
+textarea {
+    width: 100%;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--borde);
+    border-radius: 0;
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    box-shadow: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-bottom-color: var(--azul-boton);
+    box-shadow: none;
+}
+
+input.campo-lleno {
+    border-bottom-color: var(--verde);
+}
+
+select,
+input[type="date"] {
+    border: none !important;
+    border-bottom: 2px solid var(--borde) !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+}
+
+/* =========================================
+   VALIDACIONES Y ERRORES
+========================================= */
+input[type="text"].campo-error,
+input[type="email"].campo-error,
+input[type="tel"].campo-error,
+input[type="password"].campo-error,
+input[type="url"].campo-error,
+input[type="date"].campo-error,
+input[type="time"].campo-error,
+input[type="month"].campo-error,
+input[type="number"].campo-error,
+select.campo-error,
+textarea.campo-error {
+    border: none !important;
+    border-bottom: 2px solid var(--rojo) !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.mensaje-error-campo {
+    color: var(--rojo) !important;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* =========================================
+   TABLAS Y EDAD
+========================================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    background-color: var(--blanco);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th,
+td {
+    padding: 10px 12px;
+    text-align: left;
+    border: 1px solid var(--borde);
+    font-size: 0.9rem;
+}
+
+th {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+#resultadoEdad {
+    padding: 10px 12px;
+    margin-top: 8px;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    background-color: var(--fondo);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.edad-estado--mayor {
+    color: #80652F;
+    background-color: #F3EAD4 !important;
+    border-color: #DCC99F !important;
+}
+
+.edad-estado--menor {
+    color: #9A621A;
+    background-color: #FFF1D5 !important;
+    border-color: #EBCB8A !important;
+}
+
+.edad-estado--error {
+    color: var(--rojo);
+    background-color: #FFF0E8 !important;
+    border-color: #E8B5A5 !important;
+}
+
+/* =========================================
+   VISTA PREVIA DE WHATSAPP
+========================================= */
+.preview-card {
+    background: var(--fondo);
+    border: 1px dashed var(--borde);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.preview-box {
+    width: 120px;
+    height: 120px;
+    margin: 10px auto;
+    border: 1px solid var(--borde);
+    background: var(--blanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.preview-box img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* =========================================
+   VISIBILIDAD Y ESTADOS
+========================================= */
+.oculta {
+    display: none !important;
+}
+
+.bloque-deshabilitado {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.checkbox-linea {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+/* =========================================
+   ALERTAS Y MENSAJES
+========================================= */
+.alerta,
+.mensaje-simulacion {
+    background-color: #FFF0E8;
+    color: var(--rojo);
+    border: 1px solid #E8B5A5;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.mensaje-simulacion {
+    background-color: #F3EAD4;
+    color: #80652F;
+    border-color: #DCC99F;
+}
+
+/* =========================================
+   CAMPO DE CONTRASEÑA
+   BOTÓN DE VISIBILIDAD
+========================================= */
+.campo-password {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.campo-password input {
+    width: 100%;
+    padding-right: 40px !important;
+}
+
+.campo-password .btn-ojo {
+    position: absolute;
+    right: 5px;
+    bottom: 8px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 4px 8px;
+    cursor: pointer;
+    color: var(--texto-secundario);
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    width: auto;
+    height: auto;
+    transform: none !important;
+}
+
+.campo-password .btn-ojo:hover {
+    background: transparent !important;
+    color: var(--azul-boton);
+    transform: none !important;
+}
+
+/* =========================================
+   BOTONES
+========================================= */
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.btn-group.right {
+    justify-content: flex-end;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--azul-boton);
+    color: var(--blanco);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: var(--azul-oscuro);
+    transform: translateY(-1px);
+}
+
+/* =========================================
+   BOTONES SECUNDARIOS
+========================================= */
+.btn-secondary,
+input[type="reset"] {
+    background-color: #F2D9C3;
+    color: var(--azul-oscuro);
+}
+
+.btn-secondary:hover {
+    background-color: #E4CDB5;
+}

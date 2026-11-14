@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MecaGest</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="data/domicilios.js"></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>MecaGest</h1>
+        <h2>Salidas de almacén</h2>
+        <p>Solicitud de herramientas y refacciones asociadas a órdenes de servicio; datos de práctica.</p>
+    </header>
+
+   <nav class="menu-nav" aria-label="Módulos">
+        <a href="registrosUsuarios.html">Registro de usuarios</a>
+        <a href="proximas_citas.html">Próximas citas</a>
+        <a href="configuracion.html">Configuración</a>
+        <a href="salidas_almacen.html">Salidas de almacén</a>
+    </nav>
+
+    <main>
+        <fieldset>
+            <legend>Solicitud de herramientas y refacciones</legend>
+            <p><strong>Categoría de recurso:</strong></p>
+
+            <!-- Contenedor flexible para alinear cada radio button con su etiqueta en la misma línea -->
+            <div style="display: flex; gap: 25px; align-items: center; margin: 12px 0 20px 0;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <input type="radio" value="Refaccion" name="categoriaRecurso" id="catRefaccion" checked style="width: auto; margin: 0;">
+                    <label for="catRefaccion" style="display: inline-block; margin: 0; cursor: pointer; font-weight: normal;">Refacción</label>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <input type="radio" value="Herramienta" name="categoriaRecurso" id="catHerramienta" style="width: auto; margin: 0;">
+                    <label for="catHerramienta" style="display: inline-block; margin: 0; cursor: pointer; font-weight: normal;">Herramienta</label>
+                </div>
+            </div>
+
+            <!-- Lista desplegable conectada al ID toolSelect -->
+            <div class="input-group">
+                <label for="toolSelect">Elige la pieza o herramienta:</label>
+                <select id="toolSelect">
+                    <option value="" disabled selected>Selecciona una opción del inventario...</option>
+                    <option value="llave-combinada">Llave combinada (Herramienta manual)</option>
+                    <option value="llave-dinamometrica">Llave dinamométrica (Herramienta especializada)</option>
+                    <option value="extractor-poleas">Extractor de Poleas (Herramienta especializada)</option>
+                    <option value="llave-torx">Llave Torx (Herramienta manual)</option>
+                </select>
+            </div>
+
+            <div class="input-group" style="margin-top: 15px;">
+                <label for="toolQuantity">Cantidad:</label>
+                <input type="number" id="toolQuantity" min="1" max="10" value="1">
+            </div>
+
+            <button type="button" id="requestTool" class="btn-primary" style="margin-top: 15px;">Solicitar herramienta</button>
+
+            <h4 style="margin-top: 25px;">Herramientas para la orden de servicio <span class="etiqueta-tipo">4 conceptos</span></h4>
+            <p class="ayuda">Inventario de ejemplo sin conexión a base de datos.</p>
+            <table>
+                <tr><th>No.</th><th>Herramienta</th><th>Categoría</th><th>Cantidad</th><th>Unidad</th></tr>
+                <tr><td>1.</td><td>Llave combinada</td><td>Herramienta manual</td><td>4</td><td>Piezas</td></tr>
+                <tr><td>2.</td><td>Llave dinamométrica</td><td>Herramienta especializada</td><td>2</td><td>Piezas</td></tr>
+                <tr><td>3.</td><td>Extractor de Poleas</td><td>Herramienta especializada</td><td>1</td><td>Juego</td></tr>
+                <tr><td>4.</td><td>Llave Torx</td><td>Herramienta manual</td><td>3</td><td>Juegos</td></tr>
+                <tr style="white-space: nowrap;"><td></td><td></td><td><strong>Total de unidades</strong></td><td><strong>10</strong></td><td>-</td></tr>
+            </table>
+            <p class="ayuda" style="margin-top: 10px;">El botón de solicitud es únicamente visual, todavía no agrega elementos a la tabla.</p>
+        </fieldset>
+    </main>
+</body>
+</html>[cite: 16]
